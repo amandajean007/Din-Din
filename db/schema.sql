@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS dindin_db;
+CREATE DATABASE dindin_db;
