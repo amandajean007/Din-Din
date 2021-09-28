@@ -1,0 +1,32 @@
+{
+  "name": "din-din",
+  "version": "1.0.0",
+  "description": "recipe book",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amandajean007/Din-Din.git"
+  },
+  "keywords": [
+    "recipes"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amandajean007/Din-Din/issues"
+  },
+  "homepage": "https://github.com/amandajean007/Din-Din#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.3.0",
+    "sequelize": "^6.6.5"
+  }
+}
