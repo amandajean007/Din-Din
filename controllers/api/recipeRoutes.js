@@ -1,15 +1,34 @@
 const router = require('express').Router();
+const { resolve } = require('path/posix');
 const { route } = require('.');
 const { Recipe } = require('../../models');
 
 // api/recipe
-// See favorite recipes
+// See * recipes
 router.get('/', async (req, res) => {
   try {
-    const favorites = await Recipe.findAll
-  }
-})
+    const recipes = await Recipe.findAll(
+      console.log("yay")
+      // include: [
+      //   {
+      //     model: Recipe,
+      //     attributes: ['name'],
+      //   },
+      // ],
+    );
+    // Serialize data so the template can read it
+    // const cookBook = recipes.map((recipe) => recipe.get({ plain: true }));
 
+    // // Pass serialized data and session flag into template
+    // res.render('main', { 
+    //   cookBook, 
+    //   logged_in: req.session.logged_in 
+    // });
+    res.render(recipes)
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 // add a favorite recipe
