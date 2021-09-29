@@ -1,5 +1,3 @@
-
-
 const menuData = [
     {
         name: "Bacon-Wrapped Scallops",
