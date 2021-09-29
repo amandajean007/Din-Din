@@ -1,6 +1,18 @@
 const router = require('express').Router();
+const { route } = require('.');
 const { Recipe } = require('../../models');
 
+// api/recipe
+// See favorite recipes
+router.get('/', async (req, res) => {
+  try {
+    const favorites = await Recipe.findAll
+  }
+})
+
+
+
+// add a favorite recipe
 router.post('/', async (req, res) => {
   try {
     const newRecipe = await Recipe.create({
