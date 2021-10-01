@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { resolve } = require('path/posix');
 const { route } = require('.');
 const { Recipe } = require('../../models');
 const withAuth = require('../../utils/auth');
