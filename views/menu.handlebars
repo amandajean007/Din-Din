@@ -1,50 +1,29 @@
 {{!-- featured item --}}
-{{!-- have to make header --}}
 <section class="card">
-  <a href="/menu/{{id}}">
+   <div class="/menu/{{id}}">
     <header>{{name}}</header>
     <div class="card-body">
       <img src="/images/{{filename_name}}" alt="{{image_description}}">
       <p>Ingredients {{ingredients}}</p>
       <p>Directions {{directions}}</p>
     </div>
-  </a>
+  </div>
+
   {{!-- main menu --}}
+  {{!-- 10 recipes here --}}
+  {{!-- call for it to do a get --}}
+  <div>
+  {{#each recipe}}
   <section class="card">
-  <a href="/menu/{{id}}">
-    <header>{{name}}</header>
+  <div href="/menu/{{id}}">
+    <header>{{menu.name}}</header>
     <div class="card-body">
       <img src="/images/{{filename_name}}" alt="{{image_description}}">
-      <p>Ingredients {{ingredients}}</p>
-      <p>Directions {{directions}}</p>
-    </div>
-  </a>
-  <section class="card">
-  <a href="/menu/{{id}}">
-    <header>{{name}}</header>
-    <div class="card-body">
-      <img src="/images/{{filename_name}}" alt="{{image_description}}">
-      <p>Ingredients {{ingredients}}</p>
-      <p>Directions {{directions}}</p>
-    </div>
-  </a>
-  <section class="card">
-  <a href="/menu/{{id}}">
-    <header>{{name}}</header>
-    <div class="card-body">
-      <img src="/images/{{filename_name}}" alt="{{image_description}}">
-      <p>Ingredients {{ingredients}}</p>
-      <p>Directions {{directions}}</p>
-    </div>
-  </a>
-  <section class="card">
-  <a href="/menu/{{id}}">
-    <header>{{name}}</header>
-    <div class="card-body">
-      <img src="/images/{{filename_name}}" alt="{{image_description}}">
-      <p>Ingredients {{ingredients}}</p>
-      <p>Directions {{directions}}</p>
+      <p>Ingredients: {{ingredients}}</p>
+      <p>Directions: {{directions}}</p>
+    </div> 
+  {{/each}}
+  </div>
+</div>
       {{!-- add favorites heart or line --}}
-      {{!-- figure out how to do the hover thingy  --}}
-    </div>
-  </a>
+      {{!-- figure out how to do the hover thingy  --}
