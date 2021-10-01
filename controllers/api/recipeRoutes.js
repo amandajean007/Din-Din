@@ -2,10 +2,12 @@ const router = require('express').Router();
 const { resolve } = require('path/posix');
 const { route } = require('.');
 const { Recipe } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-// api/recipe
-// See * recipes
-router.get('/', async (req, res) => {
+// api/recipes
+
+// See all recipes
+router.get('/', withAuth, async (req, res) => {
   try {
     const recipes = await Recipe.findAll(
       console.log("yay")

@@ -7,15 +7,20 @@ const recipeData = require('./menu.json');
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
-  const recipes = await Recipe.bulkCreate(Data, {
+  // const users = await User.bulkCreate(userData);
+
+  // const recipes = recipeData.map((user) => user.get({plain: true}))
+  const users = await User.bulkCreate(userData, {
     individualHooks: true,
     returning: true,
   });
 
-  for (const Recipe of recipeData) {
+  const recipe = await Recipe.bulkCreate(recipeData);
+
+  for (const recipe of recipeData) {
     await Recipe.create({
-      ...Recipe,
-      recipe_id: recipes[Math.floor(Math.random() * recipes.length)].id,
+      ...recipe,
+      user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
 
