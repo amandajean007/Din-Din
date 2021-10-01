@@ -3,16 +3,17 @@ const express = require('express');
 // express sess and handlebars
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-// routes to be used
-const routes = require('./controllers/');
+const routes = require('./controllers');
 const helpers = require('./utils/helpers');
+
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-//sequalize
-const sequelize = require('./config/connection');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+// Set up Handlebars.js engine with custom helpers
+const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: 'Super secret secret',
@@ -26,11 +27,6 @@ const sess = {
 
 app.use(session(sess));
 
-
-const hbs = exphbs.create({ helpers });
-
-// this will make it so that we use authentication
-//handlebars
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
