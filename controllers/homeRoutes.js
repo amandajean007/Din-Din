@@ -5,9 +5,9 @@ const withAuth = require('../utils/auth');
 // inital login 
 router.get('/login', (req, res) => {
   if (!req.session.logged_in) {
-    res.redirect('/login');
-  } else {
     res.render('login');
+  } else {
+    res.render('menu');
   }
 });
 
@@ -17,8 +17,9 @@ router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
       res.redirect('/login');
       return;
-  }
+  } else{ 
   res.render('signup');
+  }
 }); 
 
 
@@ -46,7 +47,8 @@ router.get('/signup', (req, res) => {
 //   }
 // });
 
-// // Get recipe by id
+
+// // Get recipe by id - favorites
 // router.get('/recipe/:id', withAuth, async (req, res) => {
 //   try {
 //     const recipeData = await Recipe.findByPk(req.params.id, {
