@@ -1,6 +1,6 @@
 const router = require('express').Router();
-//const { Recipe, User } = require('../models');
-//const withAuth = require('../utils/auth');
+const { Recipe, User } = require('../models');
+const withAuth = require('../utils/auth');
 
 // inital login 
 router.get('/login', (req, res) => {
@@ -12,11 +12,19 @@ router.get('/login', (req, res) => {
   }
 });
 
+//sign up route 
+router.get('/signup', (req, res) => {
+  if (req.session.loggedIn) {
+      res.redirect('/login');
+      return;
+  }
+  res.render('signup');
+});
+
 
 // // Get all Recipes
 // router.get('/', withAuth, async (req, res) => {
 //   try {
-//     // Get all recipes and JOIN with user data
 //     const recipeData = await Recipe.findAll({
 //       include: [
 //         {
@@ -25,15 +33,14 @@ router.get('/login', (req, res) => {
 //         },
 //       ],
 //     });
-
-//     // Serialize data so the template can read it
 //     const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
 
-//     // Pass serialized data and session flag into template
-//     res.render('homepage', {
+//     res.render('menu', {
 //       recipes,
 //       logged_in: req.session.logged_in
 //     });
+
+
 //   } catch (err) {
 //     res.status(500).json(err);
 //   }
