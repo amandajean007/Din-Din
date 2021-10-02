@@ -23,29 +23,34 @@ router.get('/signup', (req, res) => {
 }); 
 
 
-// // Get all Recipes
-// router.get('/', withAuth, async (req, res) => {
-//   try {
-//     const recipeData = await Recipe.findAll({
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//       ],
-//     });
-//     const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
+// Get all Recipes
+//    /menu
+// / is already at menu 
+// put back with auth functionailhjdsba complete
+router.get('/',  (req, res) => {
+  res.status(418).json('nah');
+  res.render('menu');
+  // try {
+  //   const recipeData = await Recipe.findAll({
+  //     include: [
+  //       {
+  //         model: User,
+  //         attributes: ['name'],
+  //       },
+  //     ],
+  //   });
+  //   const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
 
-//     res.render('menu', {
-//       recipes,
-//       logged_in: req.session.logged_in
-//     });
+  //   res.render('menu', {
+  //     recipes,
+  //     logged_in: req.session.logged_in
+  //   });
 
 
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
+});
 
 
 // // Get recipe by id - favorites
