@@ -3,10 +3,11 @@ const { route } = require('.');
 const { Recipe } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// api/recipes
+// api/recipe
+// sticking with NO S 
 
 // See all recipes
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const recipes = await Recipe.findAll(
       console.log("yay")
@@ -25,7 +26,7 @@ router.get('/', withAuth, async (req, res) => {
     //   cookBook, 
     //   logged_in: req.session.logged_in 
     // });
-    res.render(recipes)
+    res.render(recipes);
   } catch (err) {
     res.status(500).json(err);
   }
