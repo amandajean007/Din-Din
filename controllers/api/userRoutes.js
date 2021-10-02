@@ -49,7 +49,7 @@ console.log(req.body.password);
       return;
     }
     req.session.save(() => {
-      req.session.username = userData.username;
+      req.session.email = userData.email;
       req.session.userId = userData.id;
       req.session.logged_in = false;
 
