@@ -3,7 +3,6 @@ const { Recipe, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // inital login 
-// 
 router.get('/login', (req, res) => {
   if (!req.session.logged_in) {
     res.redirect('/login');

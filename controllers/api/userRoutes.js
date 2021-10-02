@@ -27,8 +27,12 @@ router.post('/', async (req, res) => {
 
 //login
 router.post('/login', async (req, res) => {
+console.log(req.body.email);
+console.log(req.body.password);
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
+    console.log(userData);
+    
     if (!userData) {
       res
         .status(400)
@@ -58,6 +62,7 @@ router.post('/login', async (req, res) => {
 });
 
 // logout
+//still need work 
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
