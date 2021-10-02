@@ -4,9 +4,8 @@ const withAuth = require('../utils/auth');
 
 // inital login 
 router.get('/login', (req, res) => {
-  if (req.session.logged_in) {
+  if (!req.session.logged_in) {
     res.redirect('/menu');
-    return;
   } else {
     res.render('login');
   }
@@ -19,7 +18,7 @@ router.get('/signup', (req, res) => {
       return;
   }
   res.render('signup');
-});
+}); 
 
 
 // // Get all Recipes
