@@ -5,13 +5,14 @@ const withAuth = require('../utils/auth');
 // inital login 
 router.get('/login', (req, res) => {
   if (!req.session.logged_in) {
-    res.redirect('/menu');
+    res.redirect('/login');
   } else {
     res.render('login');
   }
 });
 
 //sign up route 
+// working
 router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
       res.redirect('/login');
