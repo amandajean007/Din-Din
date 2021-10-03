@@ -1,5 +1,5 @@
 
-<section class="card">
+{{!-- <section class="card">
    <h2>{{id}}</h2>
     <header>{{name}}</header>
     <div class="card-body">
@@ -8,20 +8,20 @@
       <p>Directions {{directions}}</p>
     </div>
   </div>
-</section>
+</section> --}}
 
 
-  {{!-- <div>
-  {{#each recipe}}
+  <div>
+  {{#each recipe }}
   <section class="card">
-  <div href="/menu/{{id}}">
-    <header>{{menu.name}}</header>
+  {{!-- <div href="/menu/{{recipe}}"> --}}
+    <header>{{name}}</header>
     <div class="card-body">
-      <img src="/images/{{filename_name}}" alt="{{image_description}}">
-      <p>Ingredients: {{menu.ingredients}}</p>
-      <p>Directions: {{menu.directions}}</p>
+      {{!-- <img src="/images/{{recipe.filename_name}}" alt="{{image_description}}"> --}}
+      <p>Ingredients: {{ingredients}}</p>
+      <p>Directions: {{directions}}</p>
     </div> 
   {{/each}}
   </div>
-</div> --}}
+</div>
 

@@ -27,29 +27,13 @@ router.get('/signup', (req, res) => {
 //    /menu
 // / is already at menu 
 // put back with auth functionailhjdsba complete
-router.get('/menu',  async (req, res) => {
-  //res.status(418).json('nah');
-  res.render('menu');
-  // try {
-  //   const recipeData = await Recipe.findAll({
-  //     include: [
-  //       {
-  //         model: User,
-  //         attributes: ['name'],
-  //       },
-  //     ],
-  //   });
-  //   const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
-
-  //   res.render('menu', {
-  //     recipes,
-  //     logged_in: req.session.logged_in
-  //   });
-
-
-  // } catch (err) {
-  //   res.status(500).json(err);
-  // }
+router.get('/menu', async (req, res) => {
+  const recipeData = await Recipe.findAll().catch((err) => {
+    res.json(err);
+  });
+  const recipe = recipeData.map((recipes) => recipes.get({ plain: true})); 
+  console.log(recipe);
+  res.render('menu', { recipe });
 });
 
 
