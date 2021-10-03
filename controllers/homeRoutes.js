@@ -31,8 +31,7 @@ router.get('/menu', async (req, res) => {
   const recipeData = await Recipe.findAll().catch((err) => {
     res.json(err);
   });
-  const recipe = recipeData.map((recipes) => recipes.get({ plain: true})); 
-  console.log(recipe);
+  const recipe = recipeData.map((recipes) => recipes.get({ plain: true}));
   res.render('menu', { recipe });
 });
 

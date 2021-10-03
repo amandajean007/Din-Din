@@ -14,14 +14,13 @@
   <div>
   {{#each recipe }}
   <section class="card">
-  {{!-- <div href="/menu/{{recipe}}"> --}}
     <header>{{name}}</header>
     <div class="card-body">
-      {{!-- <img src="/images/{{recipe.filename_name}}" alt="{{image_description}}"> --}}
+      <img src="/images/{{file_name}}">
       <p>Ingredients: {{ingredients}}</p>
       <p>Directions: {{directions}}</p>
     </div> 
+  </section>
   {{/each}}
-  </div>
 </div>
 
