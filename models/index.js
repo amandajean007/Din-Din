@@ -10,4 +10,6 @@ Recipe.belongsTo(User, {
   foreignKey: 'user_email'
 });
 
+
+
 module.exports = { User, Recipe };
