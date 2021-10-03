@@ -27,8 +27,8 @@ router.get('/signup', (req, res) => {
 //    /menu
 // / is already at menu 
 // put back with auth functionailhjdsba complete
-router.get('/',  (req, res) => {
-  res.status(418).json('nah');
+router.get('/',  async (req, res) => {
+  //res.status(418).json('nah');
   res.render('menu');
   // try {
   //   const recipeData = await Recipe.findAll({
