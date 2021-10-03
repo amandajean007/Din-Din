@@ -36,28 +36,26 @@ router.get('/menu', async (req, res) => {
 });
 
 
-// // Get recipe by id - favorites
-// router.get('/recipe/:id', withAuth, async (req, res) => {
-//   try {
-//     const recipeData = await Recipe.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//       ],
-//     });
+// Get recipe by id - favorites
+router.get('/favorite', withAuth, async (req, res) => {
+  try {
+    const recipeData = await Recipe.findAll({
+      where: {
+        is_favorite: true,
+      }
+    });
+    const recipe = recipeData.get({ plain: true });
+    //checking
+    console.log(recipe);
 
-//     const recipe = recipeData.get({ plain: true });
-
-//     res.render('recipe', {
-//       ...recipe,
-//       logged_in: req.session.logged_in
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    res.render('favorite', {
+      ...recipe,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // // Use withAuth middleware to prevent access to route
 // router.get('/profile', withAuth, async (req, res) => {

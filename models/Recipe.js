@@ -34,6 +34,10 @@ Recipe.init(
     food_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+    },
+    is_favorite: {
+      type: DataTypes.BOOLEAN, 
+      defaultValue: false,
     }
   },
   {

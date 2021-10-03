@@ -1,37 +1,9 @@
 const router = require('express').Router();
-const { route } = require('.');
 const { Recipe } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // api/recipe
 // sticking with NO S 
-
-// See all recipes
-router.get('/', async (req, res) => {
-  try {
-    const recipes = await Recipe.findAll(
-      console.log("yay")
-      // include: [
-      //   {
-      //     model: Recipe,
-      //     attributes: ['name'],
-      //   },
-      // ],
-    );
-    // Serialize data so the template can read it
-    // const cookBook = recipes.map((recipe) => recipe.get({ plain: true }));
-
-    // // Pass serialized data and session flag into template
-    // res.render('main', { 
-    //   cookBook, 
-    //   logged_in: req.session.logged_in 
-    // });
-    res.render(recipes);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 
 // add a favorite recipe
 router.post('/', async (req, res) => {
@@ -47,6 +19,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+// delete fav recipe
 router.delete('/:id', async (req, res) => {
   try {
     const RecipeData = await Recipe.destroy({
