@@ -5,10 +5,28 @@ body {
     background-attachment: fixed;
 }
 
+footer {
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    left: 25%;
+    right: 50%;
+    width: 50%;
+    border: 3px solid #0092d6;
+    background-color: aquamarine;
+}
+
+nav {
+background-color: aquamarine;
+}
+
 .column {
-    color: black;
     text-align: center;
     font-size: 24px;
+}
+
+.login-div {
+    vertical-align: middle;
 }
 
 .title {
@@ -16,10 +34,3 @@ body {
     font-family: 'Gluten', cursive;
 }
 
-footer {
-    text-align: center;
-}
-
-.login-div {
-    vertical-align: middle;
-}
