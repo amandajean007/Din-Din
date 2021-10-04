@@ -1,0 +1,25 @@
+body {
+    background-image: url("../images/dog.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.column {
+    color: black;
+    text-align: center;
+    font-size: 24px;
+}
+
+.title {
+    font-size: 72px;
+    font-family: 'Gluten', cursive;
+}
+
+footer {
+    text-align: center;
+}
+
+.login-div {
+    vertical-align: middle;
+}
