@@ -3,6 +3,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    text-align: center;
 }
 
 footer {
@@ -10,10 +11,10 @@ footer {
     position: absolute;
     bottom: 10px;
     left: 25%;
-    right: 50%;
+    right:25%;
     width: 50%;
-    border: 3px solid #0092d6;
-    background-color: aquamarine;
+    border: 3px solid aquamarine;
+    background-color: azure;
 }
 
 nav {
@@ -30,7 +31,7 @@ background-color: aquamarine;
 }
 
 .title {
-    font-size: 72px;
+    font-size: 90px;
     font-family: 'Gluten', cursive;
 }
 
