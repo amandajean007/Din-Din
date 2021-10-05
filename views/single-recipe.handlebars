@@ -1,0 +1,50 @@
+<div class="post">
+    <section class="card">
+        <header>{{recipe.name}}</header>
+        <div class="card-body">
+            <img width="275" height="300" src="/images/{{file_name}}">
+            <p>Ingredients: {{recipe.ingredients}}</p>
+            <p>Directions: {{recipe.directions}}</p>
+            <button class="favorite">Add To Favorites</button>
+        </div>
+    </section>
+
+    {{#if recipe.Comments}}
+    <section class="card">
+        <div class="card-header">
+            <h3>Comments</h3>
+        </div>
+
+        <div class="card-body">
+            {{#each recipe.Comments}}
+            <div>
+                <p>
+                    {{body}}
+                </p>
+                <p>
+                    &mdash; {{User.username}}, {{format_date createdAt}}
+                </p>
+            </div>
+            {{/each}}
+        </div>
+    </section>
+    {{/if}}
+
+    <form id="newComment" class="card">
+        <div class="card-header">
+            <h3>Add a Comment</h3>
+        </div>
+
+        <div class="card-body">
+            <input type="hidden" name="recipe-id" value="{{comment.id}}" />
+
+            <label class="form-label" for="comment-body">Comment</label>
+
+            <textarea name="comment-body" class="form-input"></textarea>
+
+            <button type="submit" class="btn">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script src="/javascript/comment.js"></script>
