@@ -1,29 +1,15 @@
-
-{{!-- <section class="card">
-   <h2>{{id}}</h2>
-    <header>{{name}}</header>
-    <div class="card-body">
-      <img src="/images/{{filename_name}}" alt="{{image_description}}">
-      <p>Ingredients {{ingredients}}</p>
-      <p>Directions {{directions}}</p>
-    </div>
-  </div>
-</section> --}}
-
-
-  <div>
+<div>
   {{#each recipe }}
-  <section class="card" >
-    <div class="favId" style="display: none;">{{id}}</div>
-    <header>{{name}}</header>
+  <section class="card">
+    <div class="favId" style="display: none;" onclick="favoriteHandler('{{{id}}}')">{{id}}</div>
+    <a href="/menu/{{id}}">{{name}}</a>
     <div class="card-body">
-      <img width="200" height="300" src="/images/{{file_name}}">
+      <img width="275" height="300" src="/images/{{file_name}}">
       <p>Ingredients: {{ingredients}}</p>
       <p>Directions: {{directions}}</p>
-      <button class="favorite" >Add To Favorites</button>
-    </div> 
+      <button class="favorite">Add To Favorites</button>
+    </div>
   </section>
   {{/each}}
 </div>
-
 <script src="/js/favorite.js"></script>
