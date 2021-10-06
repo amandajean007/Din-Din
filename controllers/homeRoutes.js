@@ -50,6 +50,10 @@ router.get('/favorite', withAuth, async (req, res) => {
       ...recipe,
       logged_in: req.session.logged_in
     });
+  } catch (err) {
+    res.status(500).json(err);
+  };
+});
 
 // get for single recipe and comments 
 router.get('/menu/:id', withAuth, async (req, res) => {
@@ -73,13 +77,11 @@ router.get('/menu/:id', withAuth, async (req, res) => {
         user_id: req.session.user_id,
       });
 
-<<<<<<< HEAD
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-<<<<<<< HEAD
 // get for single recipe and comments 
 router.get('/menu/:id', withAuth, async (req, res) => {
     try {
@@ -102,18 +104,11 @@ router.get('/menu/:id', withAuth, async (req, res) => {
         user_id: req.session.user_id,
       });
 
-=======
->>>>>>> 93932c257569c25907ee711894bfc3aa14c937cd
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-<<<<<<< HEAD
-=======
->>>>>>> 93932c257569c25907ee711894bfc3aa14c937cd
-=======
->>>>>>> 93932c257569c25907ee711894bfc3aa14c937cd
 // Get recipe by id - single recipe 
 // router.get('/favorite', withAuth, async (req, res) => {
 //   try {
