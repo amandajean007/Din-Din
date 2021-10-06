@@ -26,7 +26,6 @@ const favoriteHandler = async ()=>  {
       console.log(foodId);
 >>>>>>> 0e460229ab3e488eea1546002981d63df7fb4f3f
 
-
 }
 
 favBtn.addEventListener('click', favoriteHandler);
