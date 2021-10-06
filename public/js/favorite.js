@@ -10,7 +10,7 @@ const favoriteHandler = async ()=>  {
     //     headers: { 'Content-Type': 'application/json' },
     //   });
 
-      console.log(foodId);
+      // console.log(foodId);
 
 
 }

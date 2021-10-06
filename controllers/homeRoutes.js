@@ -4,17 +4,18 @@ const withAuth = require('../utils/auth');
 
 // inital login 
 router.get('/login', (req, res) => {
-  if (!req.session.logged_in) {
+  console.log(req.session);
+  if (!req.session.loggedIn) {
     res.render('login');
   } else {
-    res.render('menu');
+    res.redirect('/menu');
   }
 });
 
 //sign up route 
 // working
 router.get('/signup', (req, res) => {
-  if (req.session.loggedIn) {
+  if (!req.session.loggedIn) {
       res.redirect('/login');
       return;
   } else{ 
@@ -27,7 +28,7 @@ router.get('/signup', (req, res) => {
 //    /menu
 // / is already at menu 
 // put back with auth functionailhjdsba complete
-router.get('/menu', async (req, res) => {
+router.get('/menu', withAuth, async (req, res) => {
   const recipeData = await Recipe.findAll().catch((err) => {
     res.json(err);
   });
@@ -45,8 +46,6 @@ router.get('/favorite', withAuth, async (req, res) => {
       }
     });
     const recipe = recipeData.get({ plain: true });
-    //checking
-    console.log(recipe);
 
     res.render('favorite', {
       ...recipe,

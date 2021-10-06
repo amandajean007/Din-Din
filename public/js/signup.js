@@ -1,24 +1,37 @@
 const signupFormHandler = async (event) => {
-    event.preventDefault();
-  
-    const userName = document.querySelector('#userName-signup').value.trim();
-    const passwordEl = document.querySelector('#password-signup').value.trim();
-    const emailEl = document.querySelector('#email-signup').value.trim();
-    const nameEl = document.querySelector('#name-signup').value.trim();
-    const response = await fetch('/api/user', {
-      method: 'POST',
-      body: JSON.stringify({ username: userName, password: passwordEl, name: nameEl, email: emailEl }),
-      headers: { 'Content-Type': 'application/json' },
-    });
- 
-    if (response.ok) {
-      console.log('signed up');
-      document.location.replace('/login');
-    } else {
-      alert("sign up failed");
-    }
-  
-  };
-  document
-    .querySelector('.signup-form')
-    .addEventListener('submit', signupFormHandler);
+  event.preventDefault();
+
+const username = document.querySelector('#username-signup')
+const password = document.querySelector('#password-signup')
+const email = document.querySelector('#email-signup')
+const name = document.querySelector('#name-signup')
+// console.log(username);
+if (username && password && email && name) {
+  const response = await fetch('/api/user', {
+    method: 'POST',
+    body: JSON.stringify({ username, password, name, email }),
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  if (response.ok) {
+    console.log('************signed up************');
+    document.location.replace('/menu');
+  } else {
+    console.log('************FAILED************');
+    alert("sign up failed");
+    document.location.replace('/signup');
+  }
+console.log(response);
+}
+};
+// document.querySelector('#signup-form').addEventListener("submit", signupFormHandler());
+
+// document.querySelector("#signup-form").addEventListener("click", function(event) {
+//   console.log(event);
+//   signupFormHandler(event);
+//   event.preventDefault();
+// }, false);
+
+document
+.querySelector('#signup-form')
+.addEventListener('submit', signupFormHandler);
