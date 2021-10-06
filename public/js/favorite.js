@@ -14,14 +14,7 @@ const favoriteHandler = async ()=>  {
     //     headers: { 'Content-Type': 'application/json' },
     //   });
 
-
-//on backend fav page put delete and post? 
-// put delete and update button on the fav handlebars 
-
-
-
-      console.log(foodId);
-
+      // console.log(foodId);
 
 }
 

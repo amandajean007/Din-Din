@@ -4,17 +4,18 @@ const withAuth = require('../utils/auth');
 
 // inital login 
 router.get('/login', (req, res) => {
-  if (!req.session.logged_in) {
+  console.log(req.session);
+  if (!req.session.loggedIn) {
     res.render('login');
   } else {
-    res.render('menu');
+    res.redirect('/menu');
   }
 });
 
 //sign up route 
 // working
 router.get('/signup', (req, res) => {
-  if (req.session.loggedIn) {
+  if (!req.session.loggedIn) {
       res.redirect('/login');
       return;
   } else{ 
@@ -27,13 +28,29 @@ router.get('/signup', (req, res) => {
 //    /menu
 // / is already at menu 
 // put back with auth functionailhjdsba complete
-router.get('/menu', async (req, res) => {
+router.get('/menu', withAuth, async (req, res) => {
   const recipeData = await Recipe.findAll().catch((err) => {
     res.json(err);
   });
   const recipe = recipeData.map((recipes) => recipes.get({ plain: true}));
   res.render('menu', { recipe });
 });
+
+// Get recipe by id - favorites
+router.get('/favorite', withAuth, async (req, res) => {
+  try {
+    const recipeData = await Recipe.findAll({
+      where: {
+        is_favorite: true,
+      }
+    });
+    const recipe = recipeData.get({ plain: true });
+
+    res.render('favorite', {
+      ...recipe,
+      logged_in: req.session.logged_in
+    });
+
 // get for single recipe and comments 
 router.get('/menu/:id', withAuth, async (req, res) => {
     try {
@@ -55,6 +72,7 @@ router.get('/menu/:id', withAuth, async (req, res) => {
         logged_in: req.session.logged_in,
         user_id: req.session.user_id,
       });
+
   } catch (err) {
     res.status(500).json(err);
   }
