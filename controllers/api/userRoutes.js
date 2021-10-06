@@ -34,9 +34,7 @@ console.log(req.body.password);
     console.log(userData);
     
     if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect username or password, please try again' });
+      res.status(400).json({ message: 'Incorrect username or password, please try again' });
       return;
     }
 
