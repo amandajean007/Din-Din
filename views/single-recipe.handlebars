@@ -1,4 +1,4 @@
-{{!-- don't know if I need to have an each statement  --}}
+{{!-- don't know if I need to have an each statement --}}
 <div class="post">
     <section class="card">
         <header>{{recipe.name}}</header>
@@ -37,14 +37,15 @@
         </div>
 
         <div class="card-body">
-            <input type="hidden" name="recipe-id" value="{{comment.id}}"/>
-
+            <input type="hidden" name="recipe-id" value="{{comment.id}}" id="commentId" />
+    
             <label class="form-label" for="comment-body">Comment</label>
 
-            <input name="comment-body" class="form-input"/>
+            <input name="comment-body" class="form-input" id="commentBody" />
 
             <button type="submit" class="btn">Submit</button>
         </div>
+
     </form>
 </div>
 
