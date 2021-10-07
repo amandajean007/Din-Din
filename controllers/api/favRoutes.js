@@ -22,19 +22,19 @@ router.post('/', async (req, res) => {
 // delete fav recipe
 router.delete('/:id', async (req, res) => {
   try {
-    const RecipeData = await Recipe.destroy({
+    const recipeData = await Recipe.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!RecipeData) {
+    if (!recipeData) {
       res.status(404).json({ message: 'No recipe found with this id!' });
       return;
     }
 
-    res.status(200).json(RecipeData);
+    res.status(200).json(recipeData);
   } catch (err) {
     res.status(500).json(err);
   }

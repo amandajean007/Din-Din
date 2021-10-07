@@ -1,14 +1,13 @@
 const router = require('express').Router();
 const { Recipe, User, Comment } = require('../models');
-const withAuth = require('../utils/auth');
+//const withAuth = require('../utils/auth');
 
 // inital login 
 router.get('/login', (req, res) => {
-  console.log(req.session);
-  if (!req.session.loggedIn) {
+  if (!req.session.logged_in) {
     res.render('login');
   } else {
-    res.redirect('/menu');
+    res.render('menu');
   }
 });
 
@@ -16,90 +15,65 @@ router.get('/login', (req, res) => {
 // working
 router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
-      res.redirect('/login');
-      return;
-  } else { 
-  res.render('signup');
-  };
-}); 
-
-
-// Get all Recipes
-//    /menu
-// / is already at menu 
-// put back with auth functionailhjdsba complete
-router.get('/menu', withAuth, async (req, res) => {
-  const recipeData = await Recipe.findAll().catch((err) => {
-    res.json(err);
-  });
-  const recipe = recipeData.map((recipes) => recipes.get({ plain: true}));
-  res.render('menu', { recipe });
-});
-
-// Get recipe by id - favorites
-router.get('/favorite', withAuth, async (req, res) => {
-  try {
-    const recipeData = await Recipe.findAll({
-      where: {
-        is_favorite: true,
-      }
-    });
-    const recipe = recipeData.get({ plain: true });
-
-    res.render('favorite', {
-      ...recipe,
-      logged_in: req.session.logged_in
-    });
-
-// get for single recipe and comments 
-router.get('/menu/:id', withAuth, async (req, res) => {
-    try {
-      const recipeData = await Recipe.findOne({
-        where: { id: req.params.id },
-        include: User,
-      });
-      const commentData = await Comment.findAll({
-        where: { post_id: req.params.id },
-        include: User,
-      });
-  
-      const recipe = recipeData.get({ plain: true });
-      const comments = commentData.map((comment) => comment.get({ plain: true }));
-  
-      res.render('single-recipe', {
-        recipe,
-        comments,
-        logged_in: req.session.logged_in,
-        user_id: req.session.user_id,
-      });
-  } catch (err) {
-    res.status(500).json(err);
+    res.redirect('/login');
+    return;
+  } else {
+    res.render('signup');
   }
 });
 
+// logout 
+//working
+router.get('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/login');
+    return;
+  } else {
+    res.render('signup');
+  }
+});
+
+
+// Get all Recipes
+// / is menu  
+// put back with auth functionailhjdsba complete
+router.get('/', async (req, res) => {
+  //if not logged in go to login 
+  const recipeData = await Recipe.findAll().catch((err) => {
+    res.json(err);
+  });
+  const recipe = recipeData.map((recipes) => recipes.get({ plain: true }));
+  res.render('menu', { recipe });
+});
+
+
 // get for single recipe and comments 
-router.get('/menu/:id', withAuth, async (req, res) => {
-    try {
-      const recipeData = await Recipe.findOne({
-        where: { id: req.params.id },
-        include: User,
-      });
-      const commentData = await Comment.findAll({
-        where: { post_id: req.params.id },
-        include: User,
-      });
+router.get('/menu/:id', async (req, res) => {
+  try {
+    const recipeData = await Recipe.findOne({
+      where: { id: req.params.id },
+      include: User,
+    });
   
-      const recipe = recipeData.get({ plain: true });
-      const comments = commentData.map((comment) => comment.get({ plain: true }));
-  
-      res.render('single-recipe', {
-        recipe,
-        comments,
-        logged_in: req.session.logged_in,
-        user_id: req.session.user_id,
-      });
+
+    // const commentData = await Comment.findAll({
+    //   where: { id: req.params.id },
+    //   include: Comment,
+    // });
+
+    const recipe = recipeData.get({ plain: true });
+
+    // const comments = commentData.map((comment) => comment.get({ plain: true }));
+
+
+    res.render('single-recipe', {
+      recipe,
+      // comments,
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
+    });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(418).json(err);
   }
 });
 
@@ -130,7 +104,7 @@ router.get('/menu/:id', withAuth, async (req, res) => {
 //     // Find the logged in user based on the session ID
 //     const userData = await User.findByPk(req.session.user_id, {
 //       attributes: { exclude: ['password'] },
-//       include: [{ model: Recipe }],
+//       include: [{ model: User }],
 //     });
 
 //     const user = userData.get({ plain: true });

@@ -31,9 +31,7 @@ router.post('/login', async (req, res) => {
     console.log("line30", userData);
     
     if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect username or password, please try again' });
+      res.status(400).json({ message: 'Incorrect username or password, please try again' });
       return;
     }
 

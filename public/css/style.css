@@ -1,12 +1,8 @@
 body {
-    background-image: url("../images/dog.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
     text-align: center;
 }
 footer {
-    color: white;
+    color: black;
 }
 nav {
 background-color: rgb(151, 67, 247);

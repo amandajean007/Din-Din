@@ -1,8 +1,9 @@
+{{!-- don't know if I need to have an each statement  --}}
 <div class="post">
     <section class="card">
         <header>{{recipe.name}}</header>
         <div class="card-body">
-            <img width="275" height="300" src="/images/{{file_name}}">
+            <img width="275" height="300" src="/images/{{recipe.file_name}}">
             <p>Ingredients: {{recipe.ingredients}}</p>
             <p>Directions: {{recipe.directions}}</p>
             <button class="favorite">Add To Favorites</button>
@@ -36,15 +37,15 @@
         </div>
 
         <div class="card-body">
-            <input type="hidden" name="recipe-id" value="{{comment.id}}" />
+            <input type="hidden" name="recipe-id" value="{{comment.id}}"/>
 
             <label class="form-label" for="comment-body">Comment</label>
 
-            <textarea name="comment-body" class="form-input"></textarea>
+            <input name="comment-body" class="form-input"/>
 
             <button type="submit" class="btn">Submit</button>
         </div>
     </form>
 </div>
 
-<script src="/javascript/comment.js"></script>
+<script src="/js/commentForm.js"></script>
