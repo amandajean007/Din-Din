@@ -1,4 +1,4 @@
-{{!-- don't know if I need to have an each statement  --}}
+{{!-- don't know if I need to have an each statement --}}
 <div class="post">
     <section class="card">
         <header>{{recipe.name}}</header>
@@ -10,26 +10,26 @@
         </div>
     </section>
 
-    {{#if recipe.Comments}}
+
     <section class="card">
         <div class="card-header">
             <h3>Comments</h3>
         </div>
 
         <div class="card-body">
-            {{#each recipe.Comments}}
+            {{#each comments as |comment|}}
             <div>
                 <p>
-                    {{body}}
+                    {{comment.body}}
                 </p>
-                <p>
+                {{!-- <p>
                     &mdash; {{User.username}}, {{format_date createdAt}}
-                </p>
+                </p> --}}
             </div>
             {{/each}}
         </div>
     </section>
-    {{/if}}
+
 
     <form id="newComment" class="card">
         <div class="card-header">
@@ -37,7 +37,7 @@
         </div>
 
         <div class="card-body">
-            <input type="hidden" id="recipeId" value="{{recipe.id}}"/>
+            <input type="hidden" id="recipeId" value="{{recipe.id}}" />
 
             <label class="form-label" for="comment-body">Comment</label>
 

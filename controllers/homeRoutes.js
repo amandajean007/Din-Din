@@ -49,32 +49,31 @@ router.get('/', async (req, res) => {
 
 // get for single recipe and comments 
 router.get('/menu/:id', async (req, res) => {
-  console.log('Hello motto');
   try {
     const recipeData = await Recipe.findOne({
       where: { id: req.params.id },
       include: User,
     });
-    console.log(recipeData);
 
-    // const commentData = await Comment.findAll({
-    //   where: { id: req.params.id },
-    //   include: Comment,
-    // });
+    const commentData = await Comment.findAll({
+      where: { recipe_id: req.params.id }
+    });
 
     const recipe = recipeData.get({ plain: true });
 
-    // const comments = commentData.map((comment) => comment.get({ plain: true }));
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
+    console.log(comments);
 
 
     res.render('single-recipe', {
       recipe,
-      // comments,
+      comments,
       logged_in: req.session.logged_in,
       user_id: req.session.user_id,
     });
   } catch (err) {
-    res.status(418).json(err);
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 
