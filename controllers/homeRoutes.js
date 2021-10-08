@@ -49,12 +49,13 @@ router.get('/', async (req, res) => {
 
 // get for single recipe and comments 
 router.get('/menu/:id', async (req, res) => {
+  console.log('Hello motto');
   try {
     const recipeData = await Recipe.findOne({
       where: { id: req.params.id },
       include: User,
     });
-  
+    console.log(recipeData);
 
     // const commentData = await Comment.findAll({
     //   where: { id: req.params.id },

@@ -37,11 +37,11 @@
         </div>
 
         <div class="card-body">
-            <input type="hidden" name="recipe-id" value="{{comment.id}}"/>
+            <input type="hidden" id="recipeId" value="{{recipe.id}}"/>
 
             <label class="form-label" for="comment-body">Comment</label>
 
-            <input name="comment-body" class="form-input"/>
+            <textarea name="comment-body" class="form-input"></textarea>
 
             <button type="submit" class="btn">Submit</button>
         </div>

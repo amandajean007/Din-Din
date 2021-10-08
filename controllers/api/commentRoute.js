@@ -3,6 +3,10 @@ const { Comment } = require('../../models');
 
 // api/comment
 
+// get all comments 
+    // for back end 
+    
+// post comment 
 router.post('/', async (req, res) => {
     try {
         req.body.user_id = req.session.user_id;
@@ -11,6 +15,6 @@ router.post('/', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-})
+});
 
 module.exports = router;

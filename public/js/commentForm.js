@@ -3,7 +3,7 @@ const formBtn = document.querySelector('#newComment');
 const commentFormHandler = async function (event) {
     event.preventDefault();
 
-    const recipeId = document.querySelectorAll('input[name="recipe-id"]').value;
+    const recipeId = document.querySelector('#recipeId').value;
     const body = document.querySelector('[name="comment-body"]').value;
     console.log(recipeId);
     console.log(body);
