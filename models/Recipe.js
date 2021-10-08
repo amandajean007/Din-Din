@@ -35,10 +35,6 @@ Recipe.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    is_favorite: {
-      type: DataTypes.BOOLEAN, 
-      defaultValue: false,
-    }
   },
   {
     sequelize,
