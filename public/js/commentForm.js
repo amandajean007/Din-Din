@@ -3,8 +3,7 @@ const formBtn = document.querySelector('#newComment');
 const commentFormHandler = async function (event) {
     event.preventDefault();
 
-    const recipeId = document.querySelectorAll('input[id="commentId"]').value;
-
+    const recipeId = document.querySelector('#recipeId').value;
     const body = document.querySelector('[name="comment-body"]').value;
     console.log(recipeId);
     console.log(body);
@@ -17,7 +16,7 @@ const commentFormHandler = async function (event) {
             }),
             headers: { 'Content-Type': 'application/json' }
         });
-        console.log(commentGo);
+
         if(commentGo.ok) {
            alert('Yo shit did not fail'); 
            document.location.reload();
