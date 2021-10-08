@@ -62,6 +62,7 @@ router.get('/menu/:id', async (req, res) => {
     const recipe = recipeData.get({ plain: true });
 
     const comments = commentData.map((comment) => comment.get({ plain: true }));
+    console.log(comments);
 
 
     res.render('single-recipe', {
