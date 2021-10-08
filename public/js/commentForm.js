@@ -17,11 +17,10 @@ const commentFormHandler = async function (event) {
             headers: { 'Content-Type': 'application/json' }
         });
 
-        if(commentGo.ok) {
-           alert('Yo shit did not fail'); 
+        if(commentGo.ok) { 
            document.location.reload();
         } else {
-            alert('Yo shit failed');
+            alert('Unable to make comment');
         }   
     }
 };
