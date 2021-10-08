@@ -3,7 +3,7 @@ const formBtn = document.querySelector('#newComment');
 const commentFormHandler = async function (event) {
     event.preventDefault();
 
-    const recipeId = document.querySelector('#recipeId').value;
+    const recipe_id = document.querySelector('#recipeId').value;
     const body = document.querySelector('[name="comment-body"]').value;
     console.log(recipeId);
     console.log(body);
@@ -11,7 +11,7 @@ const commentFormHandler = async function (event) {
         const commentGo = await fetch('/api/comment', {
             method: 'POST',
             body: JSON.stringify({
-                recipeId,
+                recipe_id,
                 body
             }),
             headers: { 'Content-Type': 'application/json' }
