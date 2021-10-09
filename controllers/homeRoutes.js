@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Recipe, User, Comment } = require('../models');
-//const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 // inital login 
 router.get('/login', (req, res) => {
@@ -13,6 +13,7 @@ router.get('/login', (req, res) => {
 
 //sign up route 
 // working
+// logic anit adding up 
 router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/login');
@@ -37,7 +38,8 @@ router.get('/logout', (req, res) => {
 // Get all Recipes
 // / is menu  
 // put back with auth functionailhjdsba complete
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
+  console.log('fucker');
   //if not logged in go to login 
   const recipeData = await Recipe.findAll().catch((err) => {
     res.json(err);
@@ -48,7 +50,7 @@ router.get('/', async (req, res) => {
 
 
 // get for single recipe and comments 
-router.get('/menu/:id', async (req, res) => {
+router.get('/menu/:id', withAuth, async (req, res) => {
   try {
     const recipeData = await Recipe.findOne({
       where: { id: req.params.id },
