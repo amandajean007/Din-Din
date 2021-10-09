@@ -37,7 +37,7 @@ router.get('/logout', (req, res) => {
 // Get all Recipes
 // / is menu  
 // put back with auth functionailhjdsba complete
-router.get('/', async (req, res) => {
+router.get('/menu', async (req, res) => {
   //if not logged in go to login 
   const recipeData = await Recipe.findAll().catch((err) => {
     res.json(err);
