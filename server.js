@@ -35,6 +35,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
+var oneLinerJoke = require('one-liner-joke');
+var getRandomJoke = oneLinerJoke.getRandomJoke({
+  'exclude_tags': ['dirty', 'racist', 'gay']
+});
+console.log(getRandomJoke)
 
 //listener
 sequelize.sync({ force: false }).then(() => {
