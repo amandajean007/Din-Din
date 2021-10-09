@@ -27,7 +27,10 @@ MIT License
  You can make contributions to our project here!
  https://github.com/amandajean007
 ## Illustrations <a name="illustrations"></a>
-![..]  
+![login](https://user-images.githubusercontent.com/85036414/136641054-7e4dc776-92b5-471b-87a7-0ecd99ae8803.PNG)
+![signup](https://user-images.githubusercontent.com/85036414/136641111-ca440f50-7b61-4468-ab92-2389d704cee0.PNG)
+![menu](https://user-images.githubusercontent.com/85036414/136641115-7e45a874-4e59-4440-89e6-3657b19ebb0d.PNG)
+![comments](https://user-images.githubusercontent.com/85036414/136641201-9c07b863-4e2d-4f58-96d0-2f4ae85a0595.PNG)
 ## Questions <a name="questions"></a>
 #### If you have any questions please reach out to us via E-Mail: ahanes35@yahoo.com
 ## Status <a name="status"></a>
