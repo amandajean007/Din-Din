@@ -1,7 +1,7 @@
 # DinDin Recipe Catalog 😋
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Description <a name="description"></a>
-Din-Din is an app we designed to get monthly recipes for your favorite restaurants. You can comment so other people can see what you like about it or advise.
+Din-Din is an app we designed to get monthly recipes for your favorite restaurants. You can comment so other people can see what you like about it or advise. Head to https://secure-crag-98297.herokuapp.com/login
 ## Table of Contents
 1. [Description](#description)
 2. [Examples of Use](#examples)
